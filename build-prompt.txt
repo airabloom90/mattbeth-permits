@@ -1,0 +1,47 @@
+Build out individual permit pages for this Next.js app. The app already has a homepage with an interactive permit map (app/page.tsx) with 12 permit types.
+
+For each permit type, create a dedicated page at the path shown. Use "use client" directive on pages that need React state.
+
+Pages to create:
+- app/permits/roof/page.tsx — Roof / Re-Roof
+- app/permits/solar/page.tsx — Solar Panels
+- app/permits/windows-doors/page.tsx — Windows / Doors
+- app/permits/addition/page.tsx — Addition
+- app/permits/electrical/page.tsx — Electrical Service
+- app/permits/ac/page.tsx — A/C
+- app/permits/generator/page.tsx — Generator
+- app/permits/pool-spa/page.tsx — Pool / Spa
+- app/permits/driveway/page.tsx — Driveway / Sidewalk
+- app/permits/fence/page.tsx — Fence / Gate
+- app/permits/landscaping/page.tsx — Landscaping / Irrigation
+- app/permits/new-construction/page.tsx — New Construction
+
+Each permit page must include all these sections:
+1. Top header: "MattBeth Construction" label + "Residential Permit Guide" title + back arrow link to "/" 
+2. "What It Is" — plain 2-3 sentence explanation for a homeowner
+3. "When a Permit Is Required" — 4-6 bullet points of triggering conditions specific to South Florida
+4. "Typical Submittal Requirements" — 4-6 bullets of what to bring / submit
+5. "Common Mistakes" — 3-4 bullets of what homeowners and contractors get wrong
+6. "MattBeth Recommendation" — a dark (bg-slate-900 text-white) card with expert advice, 2-3 sentences
+7. CTA section — 3 buttons side by side: "Book a Consultation", "Join Growth Circle", "Download Checklist" all with href="#"
+
+Styling rules:
+- bg-slate-50 page background
+- White rounded-3xl cards with border and shadow-sm for each section
+- slate-900 for headings and dark elements
+- orange-500 for accent dots or highlights on bullet points
+- Match the visual style of the existing app/page.tsx exactly
+
+Also update app/page.tsx:
+- Import Link from "next/link"
+- Change each permit hotspot button (the orange dots) to be wrapped in or replaced by a Next.js Link pointing to the correct permit page
+- Change each category list button to also link to the correct permit page
+- Keep the setActive state for the info panel BUT also make clicking navigate (or just convert to pure links)
+
+Write real, accurate, useful content for South Florida residential construction. MattBeth voice: direct, no fluff, experienced contractor perspective.
+
+After creating all files, run these two commands separately:
+git add .
+git commit -m "feat: add individual permit pages with full content and CTAs"
+
+Then run: openclaw system event --text "Done: Built all 12 MattBeth permit pages" --mode now

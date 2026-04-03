@@ -1,6 +1,22 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+
+const permitRoutes: Record<string, string> = {
+  roof: '/permits/roof',
+  solar: '/permits/solar',
+  windows: '/permits/windows-doors',
+  addition: '/permits/addition',
+  electrical: '/permits/electrical',
+  ac: '/permits/ac',
+  generator: '/permits/generator',
+  pool: '/permits/pool-spa',
+  driveway: '/permits/driveway',
+  fence: '/permits/fence',
+  landscape: '/permits/landscaping',
+  newconstruction: '/permits/new-construction',
+};
 
 export default function MattBethPermitMapMockup() {
   const permitTypes = [
@@ -63,8 +79,9 @@ export default function MattBethPermitMapMockup() {
             {permitTypes.map((item) => {
               const isActive = active.id === item.id;
               return (
-                <button
+                <Link
                   key={item.id}
+                  href={permitRoutes[item.id]}
                   onClick={() => setActive(item)}
                   className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full border-4 transition-all ${isActive ? 'h-6 w-6 bg-slate-900 border-white shadow-[0_0_0_6px_rgba(15,23,42,0.15)]' : 'h-5 w-5 bg-orange-500 border-white hover:scale-110'}`}
                   style={{ left: item.x, top: item.y }}
@@ -82,9 +99,9 @@ export default function MattBethPermitMapMockup() {
             <h3 className="mt-2 text-2xl font-bold">{active.label}</h3>
             <p className="mt-3 text-slate-600">{active.blurb}</p>
             <div className="mt-5 grid gap-3">
-              <button className="rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95">
+              <Link href={permitRoutes[active.id]} className="rounded-2xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:opacity-95">
                 View Permit Guide
-              </button>
+              </Link>
               <button className="rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
                 Watch MattBeth Explainer
               </button>
@@ -103,13 +120,14 @@ export default function MattBethPermitMapMockup() {
               {permitTypes.map((item) => {
                 const isActive = active.id === item.id;
                 return (
-                  <button
+                  <Link
                     key={item.id}
+                    href={permitRoutes[item.id]}
                     onClick={() => setActive(item)}
                     className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${isActive ? 'border-slate-900 bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'}`}
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 );
               })}
             </div>
